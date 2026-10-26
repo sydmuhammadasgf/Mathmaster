@@ -1,3 +1,7 @@
+// Vercel Serverless Function -> /api/chat
+// Proxy gratis ke NVIDIA NIM. API key disimpan di Vercel (Environment Variables), bukan di HTML.
+// Env: NVIDIA_API_KEY (wajib) | NVIDIA_MODEL, NVIDIA_MODEL_2, NVIDIA_BASE (opsional)
+
 const DEFAULT_BASE = "https://integrate.api.nvidia.com/v1";
 const DEFAULT_MODEL = "meta/llama-3.3-70b-instruct";
 const DEFAULT_MODEL_2 = "nvidia/llama-3.3-nemotron-super-49b-v1.5";
@@ -35,7 +39,20 @@ async function readBody(req) {
 }
 
 module.exports = async function handler(req, res) {
-  if (req.method === "GET") return send(res, 200, { ok: true, service: "mathmaster-ai-proxy" });
+  if (req.method === "GET") {
+    const info = { ok: true, service: "mathmaster-ai-proxy", key_set: !!process.env.NVIDIA_API_KEY };
+    if (String(req.url || "").includes("test") && process.env.NVIDIA_API_KEY) {
+      const b = (process.env.NVIDIA_BASE || DEFAULT_BASE).replace(/\/+$/, "");
+      info.tes = [];
+      for (const m of [process.env.NVIDIA_MODEL || DEFAULT_MODEL, process.env.NVIDIA_MODEL_2 || DEFAULT_MODEL_2]) {
+        try {
+          const r = await fetch(b + "/chat/completions", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + process.env.NVIDIA_API_KEY }, body: JSON.stringify({ model: m, messages: [{ role: "user", content: "hai" }], max_tokens: 5 }) });
+          info.tes.push(m + " -> HTTP " + r.status);
+        } catch (e) { info.tes.push(m + " -> gagal terhubung"); }
+      }
+    }
+    return send(res, 200, info);
+  }
   if (req.method !== "POST") return send(res, 405, { error: "method_not_allowed" });
   if (!process.env.NVIDIA_API_KEY) return send(res, 500, { error: "server_not_configured" });
 
