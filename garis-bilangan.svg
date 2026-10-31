@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+<title id="title">Garis bilangan untuk bilangan bulat</title><desc id="desc">Garis bilangan dari negatif lima sampai positif lima dengan titik nol di tengah.</desc>
+<rect width="1200" height="420" rx="28" fill="#f5f7fb"/><text x="600" y="72" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#182842">GARIS BILANGAN</text>
+<path d="M120 220 H1080 M120 220 l24 -14 v28 z M1080 220 l-24 -14 v28 z" fill="none" stroke="#263b59" stroke-width="6" stroke-linecap="round"/>
+<g stroke="#263b59" stroke-width="5" font-family="Arial,sans-serif" font-size="26" fill="#263b59" text-anchor="middle">
+<path d="M120 202 V238"/><text x="120" y="280" stroke="none">-5</text>
+<path d="M216 202 V238"/><text x="216" y="280" stroke="none">-4</text>
+<path d="M312 202 V238"/><text x="312" y="280" stroke="none">-3</text>
+<path d="M408 202 V238"/><text x="408" y="280" stroke="none">-2</text>
+<path d="M504 202 V238"/><text x="504" y="280" stroke="none">-1</text>
+<path d="M600 202 V238"/><text x="600" y="280" stroke="none">0</text>
+<path d="M696 202 V238"/><text x="696" y="280" stroke="none">1</text>
+<path d="M792 202 V238"/><text x="792" y="280" stroke="none">2</text>
+<path d="M888 202 V238"/><text x="888" y="280" stroke="none">3</text>
+<path d="M984 202 V238"/><text x="984" y="280" stroke="none">4</text>
+<path d="M1080 202 V238"/><text x="1080" y="280" stroke="none">5</text>
+</g><circle cx="600" cy="220" r="11" fill="#d19b36"/><text x="600" y="340" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#596579">Ke kanan nilainya bertambah · ke kiri nilainya berkurang</text></svg>
