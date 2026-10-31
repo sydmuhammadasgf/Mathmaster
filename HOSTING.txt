@@ -1,0 +1,13 @@
+MATH MASTER V9 — DEPLOYMENT
+
+VERCEL: gunakan hanya /api/chat.js (adapter Vercel). Endpoint tetap /api/chat.
+CLOUDFLARE PAGES: gunakan hanya /functions/api/chat.js (adapter Pages Functions). Endpoint tetap /api/chat.
+Jangan menyalin dua adapter ke platform yang salah. Simpan NVIDIA_API_KEY sebagai secret environment variable.
+
+BANK LOKAL: 22 jalur, 355 materi, 712 soal formatif (data baseline v8); bank OSN tetap disertakan.
+KOMPETISI: competition-hub.js + data/competition-directory.json; direktori pengenalan dengan tautan resmi, tanpa tanggal pendaftaran yang ditebak.
+MEDIA: assets/visual/sigma-penjumlahan.mp4 adalah video yang diberikan pengguna.
+
+AI Mentor memerlukan internet. Materi lokal dapat dicache, tetapi AI tidak berjalan offline.
+Backup terenkripsi mencakup profil, progres, pengaturan, dan riwayat chat yang disimpan aplikasi; blob media IndexedDB belum termasuk.
+Baca README-INDONESIA.md, SOURCE-REGISTER.md, dan TEST-RESULTS.md sebelum deploy.
